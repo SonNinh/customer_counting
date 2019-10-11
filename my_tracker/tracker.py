@@ -6,7 +6,7 @@ import cv2
 
 
 class Tracker:
-    def __init__(self, maxDisappeared=50, maxDistance=40):
+    def __init__(self, maxDisappeared=40, maxDistance=50):
         # max number of continuous frames which each object is not updated position
         self.maxDisappeared = maxDisappeared
         # dictionary for number of frames which each object is not updated position
@@ -153,7 +153,7 @@ class Counter:
                     num += 1
 
             
-            if num != 0 and cur_pos_y+1 < sum_y/num:
+            if num != 0 and cur_pos_y+2 < sum_y/num:
                 # if current position is above the door, the object come from outside
                 self.come_in += 1
     

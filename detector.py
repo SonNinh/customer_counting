@@ -126,13 +126,16 @@ def main():
         elapsed_frame = -1
         while cap.isOpened():
             # open stream successfully
-            _, img = cap.read()
+            ret , img = cap.read()
+            if not ret:
+                break
+
             img = imutils.resize(img, width=400)
             
             elapsed_frame += 1
             
             # recored 40 frames for tracking objects inversely, [newest, ..., oldest]
-            if elapsed_frame % 4 == 0:
+            if elapsed_frame % 3 == 0:
                 if len(counter.inv_frames) > 40:
                     counter.inv_frames.pop()
                 counter.inv_frames.insert(0, img)
