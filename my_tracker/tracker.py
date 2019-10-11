@@ -50,7 +50,7 @@ class Tracker:
         new_objs = [[minX, minY, maxX, maxY], ...]
         '''
 
-        new_cens = np.zeros((len(new_objs), 2), dtype="int")\
+        new_cens = np.zeros((len(new_objs), 2), dtype="int")
         # compute new centers of new_objs
         for i, (minX, minY, maxX, maxY) in enumerate(new_objs):
             cX = int((minX + maxX) / 2)
